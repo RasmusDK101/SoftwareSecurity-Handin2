@@ -7,6 +7,8 @@ def signup(request):
         form = NewsletterSignupForm(request.POST)
         if form.is_valid():
             form.save()
+        else:
+            return render(request, 'signup.html', {'form': form})
 
     form = NewsletterSignupForm()
     return render(request, 'signup.html', {'form': form})
