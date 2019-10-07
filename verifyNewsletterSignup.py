@@ -12,5 +12,5 @@ def validate_name(name):
 
 for obj in NewsletterSignup.objects.all():
     if  not validate_name(obj.username) or not validate_name(obj.firstnames) or not validate_name(obj.lastnames):
-        print(obj.id)
+        print('Deleting db record id:{} with username:{}'.format(obj.id,obj))
         NewsletterSignup.objects.filter(id=obj.id).delete()
